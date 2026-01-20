@@ -81,7 +81,7 @@ def quick_sort(arr: list, low: int, high: int, partition: str='hoare'):
         else:
             p = lomuto(arr, low, high)
             quick_sort(arr, low, p - 1)
-            quick_sort(arr, p + 1, high)            
+            quick_sort(arr, p + 1, high)
 
 
 if __name__ == '__main__':
