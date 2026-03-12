@@ -9,6 +9,8 @@ i/p: [
 ], k = 29
 
 o/p: 2 1
+
+Time Complexity: O(R + C)
 """
 
 def search(arr: list, x: int):
