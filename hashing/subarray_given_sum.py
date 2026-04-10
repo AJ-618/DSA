@@ -3,6 +3,9 @@ Find an subarray in the array with the given sum.
 
 i/p: [8, 34, 12, -4, 21, 5, -10, 6], k = 24
 o/p: True
+
+Time Complexity -> O(n)
+Space Complexity -> O(n)
 """
 
 def find_sum(arr: list, k: list) -> bool:
