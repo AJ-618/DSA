@@ -3,7 +3,8 @@ Find the length of the longest subarray with
 equal numbers of zeroes and ones in a binary
 array.
 
-NOTE: the elements have to be contagious
+NOTE: the elements have to be contagious; also
+a good problem with an intersting solution.
 
 Tip: Replace 0s with -1's and find the longest
 subarray with the sum 0.
@@ -13,6 +14,9 @@ o/p: 6
 
 i/p: [1, 1, 1, 1]
 o/p: 0
+
+Time complexity -> Theta(n) or more specifically
+Theta(n^2)
 """
 
 def max_len(arr: list) -> int:
