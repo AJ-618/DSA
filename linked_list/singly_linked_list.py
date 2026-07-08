@@ -38,6 +38,37 @@ class LinkedList:
             
         return False
 
+    def detect_remove_loop(ll: LinkedList):
+        slow = ll.head
+        fast = ll.head
+
+        while fast is not None:
+            slow = slow.next
+            if fast.next is not None:
+                fast = fast.next.next
+
+            if slow == fast:
+                break
+
+        if fast is None or fast.next is None:
+            print("The Linked List does not contain a loop.")
+            return
+
+        slow = ll.head
+        
+        # Uncomment for better understanding
+        #print("slow->next", slow.next.data)
+        #print("fast->next", fast.next.data)
+        
+        while slow.next != fast.next:
+            # print("slow->next", slow.next)
+            # print("fast->next", fast.next)
+            slow = slow.next
+            fast = fast.next
+
+        fast.next = None
+            
+
     def init(self, s: int, e: int):
         while s < e:
             self.append(s)
