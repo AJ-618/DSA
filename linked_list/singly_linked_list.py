@@ -94,3 +94,22 @@ class LinkedList:
             current = current.next
         print("None")
 
+    def remove_node(self, node: Node):
+        curr = self.head
+
+        while curr != None:
+            if curr.next != node:
+                curr = curr.next
+                continue
+            
+            curr.next = curr.next.next
+            break
+
+    def get_node(self, val: int) -> Node:
+        curr = self.head
+        while curr != None:
+            if curr.data == val:
+                return curr
+            curr = curr.next
+        
+        return None
