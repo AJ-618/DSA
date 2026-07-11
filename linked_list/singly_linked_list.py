@@ -11,6 +11,7 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head = None
+        self.tail = None
 
     def create_circular_list(ll: LinkedList):
         curr = ll.head
@@ -68,7 +69,6 @@ class LinkedList:
 
         fast.next = None
             
-
     def init(self, s: int, e: int):
         while s < e:
             self.append(s)
@@ -86,6 +86,18 @@ class LinkedList:
             current = current.next
 
         current.next = new_node
+
+        self.tail = new_node
+
+    def count(self) -> int:
+        curr = self.head
+        count = 0
+
+        while curr != None:
+            count += 1
+            curr = curr.next
+
+        return count
 
     def display(self):
         current = self.head
