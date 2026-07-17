@@ -2,7 +2,7 @@
 Balanced Parenthesis
 
 Time -> O(n)
-Space -> O(1)
+Space -> O(n)
 """
 
 from my_stack import Stack
