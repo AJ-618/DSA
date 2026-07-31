@@ -67,8 +67,17 @@ class Stack:
         
         return False
 
-    def pop_n(stack_no: int) -> int:
-        pass
+    def pop_n(self, stack_no: int) -> int:
+        if stack_no > Stack.n_stacks or Stack.n_stacks <= 1:
+            return -1
+
+        n_vals_stack = Stack._stack_indexes[stack_no - 1]
+        pos = (n_vals_stack * Stack.n_stacks) - 1 - (Stack.n_stacks - stack_no)
+
+        val = Stack._common_data[pos]
+        Stack._common_data[pos] = 0
+
+        return val
 
     def peek_n(stack_no: int) -> int:
         pass

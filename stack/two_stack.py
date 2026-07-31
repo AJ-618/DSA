@@ -12,7 +12,7 @@ if __name__ == '__main__':
     
     seq_stack1 = [2, 5, 8, 43, 22, 56]
     seq_stack2 = [32, 54, 21, 3]
-    seq_stack3 = [44, 23, 95,34, 84]
+    seq_stack3 = [44, 23, 95, 34, 84]
 
     stack_no = 1
     for val in seq_stack1:
@@ -26,4 +26,14 @@ if __name__ == '__main__':
     for val in seq_stack3:
         common_stack.push_n(val, stack_no)
 
+    print('Common Stack after adding data')
     print(common_stack._common_data)
+    print('-' * 80)
+
+    common_stack.pop_n(stack_no=1)
+    common_stack.pop_n(stack_no=2)
+    common_stack.pop_n(stack_no=3)
+
+    print('Common stack after popping data from each stack')
+    print(common_stack._common_data)
+    print('-' * 80)
