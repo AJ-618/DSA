@@ -37,3 +37,13 @@ if __name__ == '__main__':
     print('Common stack after popping data from each stack')
     print(common_stack._common_data)
     print('-' * 80)
+
+    print('Peeking values of each stack')
+    print('Stack1 -> ', common_stack.peek_n(stack_no=1))
+    print('Stack2 -> ', common_stack.peek_n(stack_no=2))
+    print('Stack3 -> ', common_stack.peek_n(stack_no=3))
+    print('-' * 80)
+
+    print('Printing Stack 1')
+    print(common_stack.get_stack_n(stack_no=1))
+    print('-' * 80)

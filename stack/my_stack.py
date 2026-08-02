@@ -56,6 +56,9 @@ class Stack:
     def push_n(self, val: int, stack_no: int) -> bool:
         if stack_no > Stack.n_stacks or Stack.n_stacks <= 1:
             return False
+
+        if Stack._stack_indexes[stack_no - 1] > 127:
+            return False
         
         n_vals_stack = Stack._stack_indexes[stack_no - 1]
         val_pos = (n_vals_stack * Stack.n_stacks) + (stack_no - 1)
@@ -77,10 +80,33 @@ class Stack:
         val = Stack._common_data[pos]
         Stack._common_data[pos] = 0
 
+        Stack._stack_indexes[stack_no - 1] -= 1
+
         return val
 
-    def peek_n(stack_no: int) -> int:
-        pass
+    def peek_n(self, stack_no: int) -> int:
+        if stack_no > Stack.n_stacks or Stack.n_stacks <= 1:
+            return -1
 
-    def display_common_stack(no_of_stack: int) -> int:
-        pass
+        n_vals_stack = Stack._stack_indexes[stack_no - 1]
+        pos = (n_vals_stack * Stack.n_stacks) - 1 - (Stack.n_stacks - stack_no)
+
+        return Stack._common_data[pos]
+
+    def get_stack_n(self, stack_no: int) -> list[int]:
+        if stack_no > Stack.n_stacks or Stack.n_stacks <= 1:
+            return -1
+
+        n_vals_stack = Stack._stack_indexes[stack_no - 1]
+
+        vals = []
+        starting_index = stack_no - 1
+
+        for _ in range(0, n_vals_stack):
+            val = Stack._common_data[starting_index]
+            vals.append(val)
+
+            starting_index += Stack.n_stacks
+
+        return vals
+            
