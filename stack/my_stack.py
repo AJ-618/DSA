@@ -32,6 +32,7 @@ class Stack:
             Stack.n_stacks = n_stacks
             Stack._stack_indexes *= n_stacks
             Stack._common_data *= Stack._common_capacity
+            self.capacity = None
 
     def push(self, val: int) -> bool:
         if len(self.data) >= self.capacity:
@@ -51,6 +52,12 @@ class Stack:
             return self.data[-1]
         else:
             return None
+
+    def is_empty(self) -> bool:
+        if self.capacity:
+            return not bool(self.data)
+        else:
+            return not bool(sum(self._stack_indexes))
 
     # Common Stack functions
     def push_n(self, val: int, stack_no: int) -> bool:
