@@ -15,6 +15,7 @@ Applications of stack
 
 class Stack:
     n_stacks = 1         # default 2 common stacks
+    min_val = None
     _common_data = [0]
     _common_capacity = 128 * n_stacks   # default 128 bits capacity for common stack
     _stack_indexes = [0] * n_stacks
@@ -39,6 +40,10 @@ class Stack:
             return False
         
         self.data.append(val)
+
+        if self.min_val is None or self.min_val > val:
+           self.min_val = val 
+
         return True
 
     def pop(self) -> int:
@@ -58,6 +63,9 @@ class Stack:
             return not bool(self.data)
         else:
             return not bool(sum(self._stack_indexes))
+
+    def get_min(self) -> int:
+        return self.min_val
 
     # Common Stack functions
     def push_n(self, val: int, stack_no: int) -> bool:
@@ -116,4 +124,14 @@ class Stack:
             starting_index += Stack.n_stacks
 
         return vals
-            
+
+
+if __name__ =='__main__':
+    arr1 = [3, 4, 22, 11, 9, 1, 7, 82]
+    stack = Stack(capacity=10)
+
+    for i in arr1:
+        stack.push(i)
+
+    print(stack.data)
+    print(stack.get_min())
